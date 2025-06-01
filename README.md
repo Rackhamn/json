@@ -33,7 +33,7 @@ arena_destroy(&arena);
 ```
 
 The expected result is:
-```
+```json
 {
   "name" : "Sailor",
   "age" : 42,
