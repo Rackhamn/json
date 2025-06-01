@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "../../arena/arena.h"
+#include "../arena/arena.h"
 #include "../src/string8.h"
 #include "../src/json_cpac.h"
 #include "../src/json_dump.h"

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "../../arena/arena.h"
+#include "../arena/arena.h"
 #include "json_cpac.h"
 #include "json_make.h"
 #include "json_dump.h"
