@@ -3,6 +3,47 @@
 # JSON C Parser And Codec
 As the title states, this is to be a C-based parser and codec (outputter/writer) for JSON data.  
 
+## Usage Example
+```c
+// heap memory
+arena_t arena;
+arena_create(&arena, 4096 * 4);
+
+// json creation
+json_value_t * obj = json_make_object(&arena);
+json_object_add(&arena, obj, "name", json_make_string(&arena, "Sailor"));
+json_object_add(&arena, obj, "age", json_make_number(&arena, 42));
+
+json_value_t * array =  json_make_array(&arena);
+json_array_append(&arena, array, json_make_string(&arena, "one"));
+json_array_append(&arena, array, json_make_string(&arena, "two"));
+json_object_add(&arena, obj, "list", array);
+
+// final node
+json_result_t result = {
+    .root = obj,
+    .err = NULL
+};
+
+// dump to terminal
+json_dump(result);
+
+// cleanup heap memory
+arena_destroy(&arena);
+```
+
+The expected result is:
+```
+{
+  "name" : "Sailor",
+  "age" : 42,
+  "list" : [
+    "one",
+    "two"
+  ]
+}
+```
+
 ## Resources about JSON
 [JSON API](https://jsonapi.org/examples/)  
 [JSON ORG](https://json.org/example)  
